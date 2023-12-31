@@ -69,17 +69,17 @@
   
 <!--datos para inicio de sesion-->
    <h1>Autenticación</h1>
+    <fieldset class="contenedor_sesion">
+      <figure><img id="avatar" alt="Avatar"></figure>
+        <fieldset>
+          <legend>Email</legend>
+          <output id="email"><progress max="100">Cargando…</progress></output>
+        </fieldset>
+      <fieldset>
+        <legend>Nombre</legend>
+        <output id="nombre"></output>
+      </fieldset>
+       <a class="salir" type="button" onclick="terminaSesión()" href="index.html" >CERRAR SESION</a>
     </fieldset>
-    <figure><img id="avatar" alt="Avatar"></figure>
-    <button type="button" onclick="terminaSesión()">Terminar Sesión</button>
-       <h1>Sesión</h1>
-    <fieldset>
-      <legend>Email</legend>
-      <output id="email"><progress max="100">Cargando…</progress></output>
-    </fieldset>
-    <fieldset>
-      <legend>Nombre</legend>
-      <output id="nombre"></output>
-
 </body>
 </html>  
