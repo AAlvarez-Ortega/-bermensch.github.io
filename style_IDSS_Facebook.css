@@ -1,0 +1,95 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins",sans-serif;
+}
+body{
+  background-color: #FFC8F3;
+  background-image: url(imagenes/fondo.svg); 
+  background-attachment: fixed;
+  background-size: cover;
+}
+h1 {
+  font-family: fantasy;
+  font-size: 36px; 
+  color: white; 
+  position: relative;
+  text-align: center;
+  padding-left: 90px;
+  padding-top: 10px;
+
+}
+
+nav{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  background:#1a1a1a;
+  width: 90px;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgb(0, 0,0.1);
+  z-index: 99;
+}
+.logo{
+  text-align: center;
+  display: flex;
+  transition: all 0.5s ease;
+  margin: 10px 0 0 10px;
+}
+.logo img{
+  width: 70px;
+  height: 60px;
+  border-radius: 50%;
+}
+.logo span{
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px
+  text-transform: uppercase;
+}
+a{
+  position: relative;
+  color: #666666;
+  font-size: 10px;
+  display: table;
+  width: 300px;
+  padding: 20px  ;
+}
+.fas{
+  position: relative;
+  right: 20px;
+  width: 80px;
+  height: 25px;
+  top: 2px;
+  font-size: 20px;
+  text-align: center;
+}
+.nav-item{
+  position:relative;
+  top: -6px;
+  margin-left: 10px;
+}
+.nav-barber{
+  font-family: fantasy;
+  font-size: 30px;
+  position:relative;
+  top: 10px;
+  margin-left: 10px;
+}
+a:hover{
+  background: #eee
+}
+nav:hover{
+  width: 280px;
+  transition: all 0.5s ease;
+}
+.iniciar_sesion{
+  position: absolute;
+  bottom: 0;
+}
