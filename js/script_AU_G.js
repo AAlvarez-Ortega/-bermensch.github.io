@@ -39,7 +39,6 @@
           try {
             await auth.signOut();
             sesionTerminada = true; // Marca la sesión como terminada
-            document.getElementById('iniciarSesionButton').disabled = true;
           } catch (e) {
             procesaError(e);
           }
