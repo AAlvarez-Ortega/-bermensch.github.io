@@ -11,6 +11,8 @@
     <!-- Agrega el manejo de autenticación. -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js">
     </script>
+        
+
     <script src="js/init.js"></script>
   <script src="js/script_AU_G.js"></script>
 </head>
@@ -46,7 +48,7 @@
           </a>
         </li>
         <li>
-          <a href="chat.html">
+          <a href="#">
              <img class="fas fas-chat" src="imagenes/chat.svg"alt="">
              <samp class="nav-item">CHAT</samp>
           </a>
@@ -79,8 +81,7 @@
         <legend>Nombre</legend>
         <output id="nombre"></output>
       </fieldset>
-         <button class="salir"
- onclick="terminaSesion()"  >CERRAR SESION</button>
+       <button id="cerrarSesion" class="salir">CERRAR SESION</button>
     </fieldset>
 </body>
 </html>  
