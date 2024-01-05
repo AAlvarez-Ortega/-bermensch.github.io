@@ -1,58 +1,51 @@
-//@ts-check
+import { getAuth, signInWithRedirect, signOut, GoogleAuthProvider } from "firebase/auth";
 
 class FirebaseAuthHandler {
-  constructor(auth, provider) {
-    this.auth = auth;
-    this.provider = provider;
-    this.sesionCerrada = false;
-    this.iniciarEscuchaAutenticacion();
+  constructor() {
+    this.auth = getAuth();
+    this.provider = new GoogleAuthProvider();
+    this.signedIn = false;
+    this.initAuth();
   }
 
-  iniciarEscuchaAutenticacion() {
-    this.auth.onAuthStateChanged(usuarioAuth => {
-      if (!this.sesionCerrada) {
-        if (usuarioAuth && usuarioAuth.email) {
-          this.mostrarInfoUsuario(usuarioAuth);
-        } else {
-          if (!this.sesionCerrada) {
-            this.iniciarSesion();
-          }
-        }
+  initAuth() {
+    this.auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.signedIn = true;
+        this.displayUserInfo(user);
+      } else {
+        this.signedIn = false;
       }
     });
   }
 
-  mostrarInfoUsuario(usuarioAuth) {
-    // Mostrar la información del usuario
-    email.value = usuarioAuth.email;
-    nombre.value = usuarioAuth.displayName;
-    avatar.src = usuarioAuth.photoURL;
+  displayUserInfo(user) {
+    // Mostrar la información del usuario en la interfaz
+    const emailOutput = document.getElementById('email');
+    const displayNameOutput = document.getElementById('displayName');
+    const photoOutput = document.getElementById('photo');
+
+    emailOutput.textContent = user.email;
+    displayNameOutput.textContent = user.displayName;
+    photoOutput.src = user.photoURL;
   }
 
-  iniciarSesion() {
-    // Iniciar sesión con el proveedor de autenticación de Facebook
-    firebase.auth().signInWithRedirect(this.provider);
-  }
-
-  async cerrarSesion() {
+  async signIn() {
     try {
-      await this.auth.signOut();
-      this.sesionCerrada = true;
-    } catch (e) {
-      this.procesarError(e);
+      await signInWithRedirect(this.auth, this.provider);
+    } catch (error) {
+      console.error("Error signing in:", error);
     }
   }
 
-  procesarError(e) {
-    console.log(e);
-    alert(e.message);
+  async signOut() {
+    try {
+      await signOut(this.auth);
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
   }
 }
 
-// Configurar el proveedor de autenticación de Facebook
-const providerFacebook = new firebase.auth.FacebookAuthProvider();
-providerFacebook.addScope('user_birthday');
-providerFacebook.setCustomParameters({ display: 'popup' });
+const authHandler = new FirebaseAuthHandler();
 
-// Crear una instancia de la clase FirebaseAuthHandler con el proveedor de Facebook
-const firebaseAuthHandler = new FirebaseAuthHandler(firebase.auth(), providerFacebook);
