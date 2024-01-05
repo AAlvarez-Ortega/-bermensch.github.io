@@ -34,7 +34,7 @@
       let sesionTerminada = false; // Variable para controlar si la sesión terminó
 
       /** Termina la sesión. */
-      async function terminaSesión() {
+      async function terminaSesion() {
         if (!sesionTerminada) { // Verifica si la sesión no ha terminado antes
           try {
             await auth.signOut();
