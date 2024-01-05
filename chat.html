@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chat Alvarez</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="style_chat.css">
     <!-- Carga el núcleo de Firebase JS SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <!-- Agrega el manejo de autenticación. -->
@@ -21,8 +21,12 @@
       <input id="texto" type="text" required placeholder="Mensaje">
       <button>Enviar</button>
     </form>
+    <button id="cerrarSesion">Cerrar sesión</button>
     <div class="container"> 
     <ol id="mensajes"><li><progress max="100">Cargando…</progress></li></ol>
+
+
+      
       <script>
         // @ts-check
       /** Nombre de usuario atenticado por Firebase. */
@@ -36,6 +40,8 @@
       const provider = new firebase.auth.GoogleAuthProvider();
       /* Configura el proveedor de Google para que permita seleccionar de una
        * lista. */
+      const cerrarSesionBtn = document.getElementById('cerrarSesion');
+        
       provider.setCustomParameters({ prompt: "select_account" });
       /* Recibe una función que se invoca cada que hay un cambio en la
        * autenticación y recibe el modelo con las características del usuario.*/
@@ -141,6 +147,18 @@
       function cod(texto) {
         return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
       }
+      
+      cerrarSesionBtn.addEventListener('click', async () => {
+          try {
+            await firebase.auth().signOut();
+            alert('Sesión cerrada con éxito');
+            window.location.href = 'index.html'; // Redirige a index.html
+          } catch (error) {
+            procesaError(error);
+          }
+        });
+
+        
       </script>
       </div>
   </body>
