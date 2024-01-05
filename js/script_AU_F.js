@@ -30,7 +30,8 @@ class FirebaseAuthHandler {
   }
 
   iniciarSesion() {
-    this.auth.signInWithRedirect(this.provider);
+    // Iniciar sesión con el proveedor de autenticación de Facebook
+    firebase.auth().signInWithRedirect(this.provider);
   }
 
   async cerrarSesion() {
@@ -48,9 +49,10 @@ class FirebaseAuthHandler {
   }
 }
 
-// Configuración del proveedor de autenticación de Facebook
+// Configurar el proveedor de autenticación de Facebook
 const providerFacebook = new firebase.auth.FacebookAuthProvider();
-providerFacebook.setCustomParameters({ prompt: 'select_account' });
+providerFacebook.addScope('user_birthday');
+providerFacebook.setCustomParameters({ display: 'popup' });
 
-// Crear una instancia de la clase FirebaseAuthHandler
+// Crear una instancia de la clase FirebaseAuthHandler con el proveedor de Facebook
 const firebaseAuthHandler = new FirebaseAuthHandler(firebase.auth(), providerFacebook);
