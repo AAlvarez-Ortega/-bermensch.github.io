@@ -1,27 +1,25 @@
-firebase.initializeApp(firebaseConfig);
+const database = firebase.firestore
 
-// Inicializar Firestore
-var db = firebase.firestore();
+// Accede al formulario
+const citaForm = document.getElementById('citaForm');
 
-// Obtener el formulario
-var citaForm = document.getElementById('citaForm');
+// Agrega un evento al formulario para enviar datos a Firebase al hacer submit
+citaForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // Evita el envío por defecto del formulario
 
-// Manejar el evento submit del formulario
-citaForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+  // Obtén los valores del formulario
+  const nombre = document.getElementById('nombre').value;
+  const fecha = document.getElementById('fecha').value;
+  const contacto = document.getElementById('contacto').value;
 
-  // Capturar los valores del formulario
-  var nombre = document.getElementById('nombre').value;
-  var fecha = document.getElementById('fecha').value;
-  var contacto = document.getElementById('contacto').value;
-
-  // Agregar los datos a la base de datos
-  db.collection('citas').add({
-    nombre: nombre,
-    fecha: fecha,
-    contacto: contacto
+  // Crea un objeto con los datos
+  const Cita =  await database.collection('citas').doc().set({
+    nombre,
+    fecha,
+    contacto
   })
+    console.log(Cita)
+    alert("cita agendada corretamente");
 
-  // Limpiar el formulario después de agregar la cita
-  citaForm.reset();
+  
 });
