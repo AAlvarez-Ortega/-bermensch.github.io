@@ -1,4 +1,4 @@
-const database = firebase.firestore
+const database = firebase.firestore();
 
 // Accede al formulario
 const citaForm = document.getElementById('citaForm');
