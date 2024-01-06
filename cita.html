@@ -5,11 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
-  <link href="style_citas.css" rel="stylesheet" type="text/css" />
+  <link href="style_cita.css" rel="stylesheet" type="text/css" />
+  <!-- Carga el núcleo de Firebase JS SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <!-- Agrega el manejo de autenticación. -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  
 </head>
 <body>
   <h1>Übermensch</h1>
-  <h1>Agendar cita</h1>
 <!--menu-->
   <nav class="menu">
     <ul>
@@ -45,7 +50,7 @@
           </a>
         </li>
       <li>
-        <a href="cita.html">
+        <a href="#">
            <img class="fas fas-cita" src="imagenes/cita.svg"alt="">
            <samp class="nav-item">CITA</samp>
         </a>
@@ -59,6 +64,7 @@
     </ul>
   </nav>
   <div class="encabezado">
+    <a href="nueva_cita.html">Agendar cita</a>
     <a href="citas.html">Citas existentes</a>
   </div>
 
@@ -77,7 +83,7 @@
     </form>
   </main>
 
-  <script src="js/script_cita.js"></script>
+  <script src="js/script_citas.js"></script>
 
 </body>
 </html>
