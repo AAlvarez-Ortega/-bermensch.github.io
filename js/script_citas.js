@@ -65,8 +65,4 @@ function procesaError(e) {
   alert(e.message);
 }
 
-// Manejar el evento de clic en el botón
-agendarCitaBtn.addEventListener('click', async () => {
-  agendarCita(); // Llamar a la función para agregar la cita
-});
 
