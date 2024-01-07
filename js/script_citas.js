@@ -52,7 +52,10 @@ agendarCitaBtn.addEventListener('click', function(event) {
 
   // Agregar los datos a la colección "citas"
   db.collection('citas').add({
+    avatar: avatar,
+    usuario: usuario,
     nombre: nombre,
+    hora: firebase.firestore.FieldValue.serverTimestamp(),
     fecha: fecha,
     contacto: contacto
   })
