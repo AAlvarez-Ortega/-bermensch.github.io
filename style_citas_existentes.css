@@ -103,3 +103,16 @@ nav:hover{
   position: absolute;
   bottom: 0;
 }
+
+.encabezado {
+  font-family: 'Roboto', sans-serif; /* Usamos una fuente similar a la de Google */
+  background-color: #4285f4; /* Color de fondo similar a Google */
+  color: #fff; /* Texto en color blanco */
+  padding: 10px; /* Añadimos un relleno alrededor del contenido */
+  padding-left: 100px; /* Agregamos un relleno a la izquierda de 100px */
+}
+
+.encabezado a {
+  color: #fff; /* Color del enlace */
+  text-decoration: none; /* Quitamos la subrayado del enlace */
+}
