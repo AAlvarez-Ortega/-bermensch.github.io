@@ -57,7 +57,7 @@ agendarCitaBtn.addEventListener('click', function(event) {
     usuario: usuario,
     nombre: nombre,
     fecha: fecha,
-    hora_de_cita: hora,
+    hora_de_cita: hora_de_cita,
     contacto: contacto,
     hora_de_registro: firebase.firestore.FieldValue.serverTimestamp()
   })
