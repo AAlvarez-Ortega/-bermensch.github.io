@@ -28,6 +28,7 @@ auth.onAuthStateChanged(
       avatar = usuarioAuth.photoURL;
     } else {
       // No ha iniciado sesión. Pide datos para iniciar sesión.
+      alert("no tiene la sesion iniciada");
       await auth.signInWithRedirect(provider);
     }
   },
