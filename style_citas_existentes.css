@@ -117,3 +117,21 @@ nav:hover{
   color: #fff; /* Color del enlace */
   text-decoration: none; /* Quitamos la subrayado del enlace */
 }
+/* Estilo para la lista de datos */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilo para cada elemento de lista */
+li {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Estilo para el último elemento de lista, elimina el borde inferior */
+li:last-child {
+  border-bottom: none;
+}
+
