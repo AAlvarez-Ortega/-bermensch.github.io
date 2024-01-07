@@ -7,7 +7,7 @@ db.collection("citas").get().then((querySnapshot) => {
     const data = doc.data();
     const citaInfo = document.createElement('div');
     citaInfo.innerHTML = `
-      <p>Avatar: ${data.avatar}</p>
+      <p><img>Avatar: ${data.avatar}</img></p>
       <p>Contacto: ${data.contacto}</p>
       <p>Fecha: ${data.fecha}</p>
       <p>Hora de la cita: ${data.hora_de_cita}</p>
