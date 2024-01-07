@@ -46,6 +46,7 @@ agendarCitaBtn.addEventListener('click', function(event) {
   var nombre = document.getElementById('nombre').value;
   var fecha = document.getElementById('fecha').value;
   var contacto = document.getElementById('contacto').value;
+  var hora_de_cita = document.getElementById('hora').value;
 
   // Acceder a la base de datos de Firestore
   var db = firebase.firestore();
@@ -55,9 +56,10 @@ agendarCitaBtn.addEventListener('click', function(event) {
     avatar: avatar,
     usuario: usuario,
     nombre: nombre,
-    hora: firebase.firestore.FieldValue.serverTimestamp(),
     fecha: fecha,
-    contacto: contacto
+    hora_de_cita: hora,
+    contacto: contacto,
+    hora_de_registro: firebase.firestore.FieldValue.serverTimestamp()
   })
   // Limpiar el formulario después de agregar la cita
   document.getElementById('citaForm').reset();
