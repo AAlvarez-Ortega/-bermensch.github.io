@@ -4,8 +4,6 @@ let avatar = "";
 let nombre = document.getElementById("nombre");
 let feha = document.getElementById("fecha");
 let contacto = document.getElementById("contacto");
-
-var agendarCitaBtn = document.getElementById('agendarCitaBtn');
 /** Conexión al sistema de autenticación de Firebase. */
 // @ts-ignore
 const auth = firebase.auth();
