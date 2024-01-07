@@ -58,6 +58,7 @@ agendarCitaBtn.addEventListener('click', function(event) {
   })
   // Limpiar el formulario después de agregar la cita
   document.getElementById('citaForm').reset();
+  alert("cita agregada correctamente");
 });
 
 function procesaError(e) {
