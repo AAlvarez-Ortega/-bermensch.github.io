@@ -106,7 +106,6 @@ nav:hover{
 
 .container{
   font-family: 'Roboto', sans-serif; 
-  background-color: #4285f4; 
   color: #fff; 
   padding: 10px; 
   padding-left: 100px; 
@@ -118,6 +117,7 @@ nav:hover{
   text-decoration: none; /* Quitamos la subrayado del enlace */
 }
 /* Estilo para la lista de datos */
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -134,4 +134,14 @@ li {
 li:last-child {
   border-bottom: none;
 }
+
+/* Estilo para la imagen */
+img {
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  width: 50px; /* Tamaño de la imagen */
+  height: 50px;
+  object-fit: cover; /* Ajusta la imagen al tamaño especificado */
+  margin-right: 10px; /* Espacio a la derecha de la imagen */
+}
+
 
