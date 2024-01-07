@@ -54,7 +54,7 @@ function agrega() {
     TIMESTAMP: firebase.firestore.FieldValue.serverTimestamp(),
     AVATAR: avatar,
   });
-  alert("Cita agregada");
+  alert("cita agregada");
 }
 /** Procesa un error. Muestra el objeto en la consola y un cuadro de
  * alerta con el mensaje.
@@ -65,9 +65,7 @@ function procesaError(e) {
 }
 
 // Manejar el evento de clic en el botón
-agendarCitaBtn.onclick = function() {
+agendarCitaBtn.addEventListener('click', async () => {
   agendarCita(); // Llamar a la función para agregar la cita
-};
-
-
+});
 
