@@ -1,42 +1,25 @@
-// Acceder a la base de datos de Firestore
-const db = firebase.firestore();
-const citasContainer = document.getElementById('CITAS');
+    const db = firebase.firestore();
+    const container = document.getElementById('container');
 
-// Obtener la colección 'citas' y sus documentos
-db.collection('citas').get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    const cita = doc.data();
-    const citaItem = document.createElement('li');
-    
-    // Crear un elemento para cada campo y agregarlos al elemento de la lista
-    const avatar = document.createElement('span');
-    avatar.textContent = 'Avatar: ' + cita.avatar;
-    citaItem.appendChild(avatar);
-
-    const contacto = document.createElement('span');
-    contacto.textContent = 'Contacto: ' + cita.contacto;
-    citaItem.appendChild(contacto);
-
-    const fecha = document.createElement('span');
-    fecha.textContent = 'Fecha: ' + cita.fecha;
-    citaItem.appendChild(fecha);
-
-    const hora_de_cita = document.createElement('span');
-    hora_de_cita.textContent = 'Hora de cita: ' + cita.hora_de_cita;
-    citaItem.appendChild(hora_de_cita);
-
-    const nombre = document.createElement('span');
-    nombre.textContent = 'Nombre: ' + cita.nombre;
-    citaItem.appendChild(nombre);
-
-    const usuario = document.createElement('span');
-    usuario.textContent = 'Usuario: ' + cita.usuario;
-    citaItem.appendChild(usuario);
-
-    // Agregar el elemento de la lista al contenedor de citas
-    citasContainer.appendChild(citaItem);
-  });
-}).catch((error) => {
-  console.error('Error al obtener las citas: ', error);
-});
-
+    // Consulta los datos en la colección específica
+    db.collection("NOMBRE_DE_LA_COLECCION").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        // Crea un elemento div para mostrar los datos
+        const div = document.createElement('div');
+        // Rellena el div con los datos que deseas mostrar
+        div.innerHTML = `
+          <p>Avatar: ${data.avatar}</p>
+          <p>Contacto: ${data.contacto}</p>
+          <p>Fecha: ${data.fecha}</p>
+          <p>Hora de la cita: ${data.hora_de_cita}</p>
+          <p>Nombre: ${data.nombre}</p>
+          <p>Usuario: ${data.usuario}</p>
+          <hr>
+        `;
+        // Agrega el div al contenedor
+        container.appendChild(div);
+      });
+    }).catch((error) => {
+      console.error("Error al obtener los datos: ", error);
+    });
