@@ -6,9 +6,8 @@
       querySnapshot.forEach((doc) => {
         const data = doc.data();
         // Crea un elemento div para mostrar los datos
-        const div = document.createElement('div');
         // Rellena el div con los datos que deseas mostrar
-        div.innerHTML = `
+        container.innerHTML = `
           <p>Avatar: ${data.avatar}</p>
           <p>Contacto: ${data.contacto}</p>
           <p>Fecha: ${data.fecha}</p>
