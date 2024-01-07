@@ -1,9 +1,6 @@
 /** Nombre de usuario atenticado por Firebase y datos de la cita */
 let usuario = "";
 let avatar = "";
-let nombre = document.getElementById("nombre");
-let fecha = document.getElementById("fecha");
-let contacto = document.getElementById("contacto");
 /** Conexión al sistema de autenticación de Firebase. */
 // @ts-ignore
 const auth = firebase.auth();
@@ -38,29 +35,33 @@ auth.onAuthStateChanged(
 const firestore = firebase.firestore();
 var citaForm = document.getElementById('citaForm');
 
+// Obtener el botón "Agendar Cita" por su ID
+var agendarCitaBtn = document.getElementById('agendarCitaBtn');
 
-/** Agrega un usuario a la base de datos. */
-function agendarCita() {
-  /* "MENSAJE" es el nombre de la colección a la que se agregan los datos.
-   * "USUARIO", "TEXTO" y "TIMESTAMP" son los nombres de los campos en el
-   * documento.
-   * El timestamp contiene la fecha y hora en que se agrega el registro.*/
-  firestore.collection("CITA").add({
-    NOMBRE: nombre,
-    FECHA: fecha,
-    CONTACTO: contacto,
-    USUARIO: usuario,
-    TIMESTAMP: firebase.firestore.FieldValue.serverTimestamp(),
-    AVATAR: avatar,
-  });
-  alert("cita agregada");
-}
-/** Procesa un error. Muestra el objeto en la consola y un cuadro de
- * alerta con el mensaje.
- * @param {Error} e descripción del error. */
+// Manejar el evento click en el botón "Agendar Cita"
+agendarCitaBtn.addEventListener('click', function(event) {
+  event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+
+  // Capturar los valores del formulario
+  var nombre = document.getElementById('nombre').value;
+  var fecha = document.getElementById('fecha').value;
+  var contacto = document.getElementById('contacto').value;
+
+  // Acceder a la base de datos de Firestore
+  var db = firebase.firestore();
+
+  // Agregar los datos a la colección "citas"
+  db.collection('citas').add({
+    nombre: nombre,
+    fecha: fecha,
+    contacto: contacto
+  })
+  // Limpiar el formulario después de agregar la cita
+  document.getElementById('citaForm').reset();
+});
+
 function procesaError(e) {
   console.log(e);
   alert(e.message);
 }
-
 
