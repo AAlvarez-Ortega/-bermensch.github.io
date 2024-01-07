@@ -104,7 +104,7 @@ nav:hover{
   bottom: 0;
 }
 
-.encabezado {
+.container{
   font-family: 'Roboto', sans-serif; 
   background-color: #4285f4; 
   color: #fff; 
@@ -113,7 +113,7 @@ nav:hover{
   z-index: 98;
 }
 
-.encabezado a {
+.container a {
   color: #fff; /* Color del enlace */
   text-decoration: none; /* Quitamos la subrayado del enlace */
 }
