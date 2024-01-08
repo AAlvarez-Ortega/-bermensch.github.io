@@ -1,3 +1,39 @@
+/** Nombre de usuario atenticado por Firebase y datos de la cita */
+let usuario = "";
+let avatar = "";
+/** Conexión al sistema de autenticación de Firebase. */
+// @ts-ignore
+const auth = firebase.auth();
+/** Tipo de autenticación de usuarios. En este caso es con Google. */
+// @ts-ignore
+const provider = new firebase.auth.GoogleAuthProvider();
+/* Configura el proveedor de Google para que permita seleccionar de una
+ * lista. */
+provider.setCustomParameters({ prompt: "select_account" });
+/* Recibe una función que se invoca cada que hay un cambio en la
+ * autenticación y recibe el modelo con las características del usuario.*/
+auth.onAuthStateChanged(
+  /** Recibe las características del usuario o null si no ha iniciado
+   * sesión. */
+  async usuarioAuth => {
+    if (usuarioAuth && usuarioAuth.email) {
+      // Usuario aceptado.
+      usuario = usuarioAuth.email;
+      // Foto del Avatar
+      avatar = usuarioAuth.photoURL;
+    } else {
+      // No ha iniciado sesión. Pide datos para iniciar sesión.
+      alert("no tiene la sesion iniciada");
+      await auth.signInWithRedirect(provider);
+    }
+  },
+  // Función que se invoca si hay un error al verificar el usuario.
+  procesaError
+);
+
+
+
+
 const citaForm = document.getElementById('citaForm');
 const nombreInput = document.getElementById('nombre');
 const fechaInput = document.getElementById('fecha');
