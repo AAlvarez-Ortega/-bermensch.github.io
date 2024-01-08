@@ -64,6 +64,25 @@
     </ul>
   </nav>
   <div class="container" id="container"></div>
+  <div class="container" id="container"></div>
+
+  <!-- Formulario para editar los datos -->
+  <div class="edit-form-container" id="editFormContainer" style="display: none;">
+    <h2>Editar Datos</h2>
+    <form id="editForm">
+      <label for="contacto">Contacto:</label>
+      <input type="text" id="contacto" name="contacto" required><br><br>
+      <label for="fecha">Fecha:</label>
+      <input type="text" id="fecha" name="fecha" required><br><br>
+      <label for="horaCita">Hora de la cita:</label>
+      <input type="text" id="horaCita" name="horaCita" required><br><br>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" name="usuario" required><br><br>
+      <input type="submit" value="Guardar Cambios">
+    </form>
+  </div>
 
 <script src="js/script_citas_existentes.js"></script>
 </body>
