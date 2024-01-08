@@ -35,6 +35,7 @@ async function terminaSesión() {
   try {
     await auth.signOut();
     alert("sesion terminada");
+    window.close();
     window.open('https://aalvarez-ortega.github.io/-bermensch.github.io/');
     window.close();
   } catch (e) {
