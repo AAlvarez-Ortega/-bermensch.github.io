@@ -14,6 +14,7 @@ const citaRef = db.collection('citas').doc(citaId);
 
 citaRef.get().then((doc) => {
   if (doc.exists) {
+    alert("si entro tu!!!");
     const data = doc.data();
     // Rellena el formulario con los datos obtenidos del documento
     nombreInput.value = data.nombre;
