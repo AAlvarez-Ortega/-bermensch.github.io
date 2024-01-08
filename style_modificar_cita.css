@@ -152,5 +152,10 @@ button {
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  
+  transition: background-color 0.3s, cursor 0.3s; 
+}
+
+button:hover {
+  cursor: pointer; 
+  background-color: #a9a9a9; 
 }
