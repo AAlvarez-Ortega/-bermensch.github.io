@@ -132,16 +132,6 @@ li:last-child {
   padding-bottom: 10px;
 }
 
-/* Estilo para las imágenes de avatar */
-.avatar-image {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  margin-right: 10px;
-  padding: 5px;
-}
-
 /* Estilo para el botón "Modificar" */
 .modificar-btn {
   margin-top: 10px;
@@ -151,6 +141,51 @@ li:last-child {
   border: none;
   cursor: pointer;
 }
+/* Estilo para el formulario de edición */
+.edit-form-container {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  padding: 20px;
+  background-color: #333;
+  margin-top: 20px;
+}
 
+.edit-form-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.edit-form-container label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.edit-form-container input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.edit-form-container input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-form-container input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para las imágenes de avatar */
+.avatar-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+  padding: 5px;
+}
 
 
