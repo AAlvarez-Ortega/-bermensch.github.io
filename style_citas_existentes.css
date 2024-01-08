@@ -123,6 +123,9 @@ ul {
   padding: 0;
   margin: 0;
 }
+.lista_de_opciones{
+ padding: 8px;
+}
 
 /* Estilo para cada elemento de lista */
 li {
