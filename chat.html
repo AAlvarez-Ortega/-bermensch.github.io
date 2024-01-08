@@ -204,6 +204,7 @@
             try {
               await firebase.auth().signOut();
               alert("sesion terminada");
+              window.close();
               window.open('https://aalvarez-ortega.github.io/-bermensch.github.io/'); // Abre una nueva pestaña con la URL proporcionada
               window.close();
             } catch (error) {
