@@ -18,44 +18,44 @@
 <!--menu-->
   <nav class="menu">
     <ul>
-        <li class= "lista_de_opciones">
+        <li>
           <a href="index.html" class="logo">
              <img class="fas fas-logo" src="imagenes/logo.png" alt="">
              <samp class="nav-barber"> BARBER</samp>
           </a>
         </li>
-        <li class= "lista_de_opciones">
+        <li>
           <a href="index.html">
              <img class="fas fas-inicio"src="imagenes/inicio.svg" alt="">
              <samp class="nav-item">INICIO</samp>
           </a>
         </li>
-        <li class= "lista_de_opciones">
+        <li>
           <a href="#">
 
              <img class="fas fas-tienda"src="imagenes/tienda.svg"alt="">
              <samp class="nav-item">TIENDA</samp>
           </a>
         </li>
-        <li class= "lista_de_opciones">
+        <li>
           <a href="#">
              <img class="fas fas-barberos"src="imagenes/barbers.svg"alt="">
              <samp class="nav-item">BARBEROS</samp>
           </a>
         </li>
-        <li class= "lista_de_opciones">
+        <li>
           <a href="chat.html">
              <img class="fas fas-chat" src="imagenes/chat.svg"alt="">
              <samp class="nav-item">CHAT</samp>
           </a>
         </li>
-      <li class= "lista_de_opciones">
+      <li>
         <a href="cita.html">
            <img class="fas fas-cita" src="imagenes/cita.svg"alt="">
            <samp class="nav-item">CITA</samp>
         </a>
       </li>
-        <li class= "lista_de_opciones">
+        <li>
           <a href="iniciodesecion.html" class="iniciar_sesion">
              <img class="fas fas-sesion" src="imagenes/user.svg" alt="">
              <samp class="nav-item">INICIO DE SESION</samp>
@@ -63,26 +63,17 @@
         </li>
     </ul>
   </nav>
-  <div class="container" id="container"></div>
-
-  <!-- Formulario para editar los datos -->
-  <div class="edit-form-container" id="editFormContainer" style="display: none;">
-    <h2>Editar Datos</h2>
-    <form id="editForm">
-      <label for="contacto">Contacto:</label>
-      <input type="text" id="contacto" name="contacto" required><br><br>
-      <label for="fecha">Fecha:</label>
-      <input type="text" id="fecha" name="fecha" required><br><br>
-      <label for="horaCita">Hora de la cita:</label>
-      <input type="text" id="horaCita" name="horaCita" required><br><br>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required><br><br>
-      <label for="usuario">Usuario:</label>
-      <input type="text" id="usuario" name="usuario" required><br><br>
-      <input type="submit" value="Guardar Cambios">
-    </form>
+  <div class="encabezado">
+    <a href="citas.html">Citas existentes</a>
   </div>
+  <div class="container"> 
+    <ol id="mensajes">
+      <li>
+      <progress max="100">Cargando…</progress>
+      </li>
+    </ol>
+  </div>  
 
-  <script src="js/script_citas_existentes.js"></script>
+<script src="js/script_citas_existentes.js"></script>
 </body>
 </html>
