@@ -12,8 +12,9 @@ db.collection("citas").get().then((querySnapshot) => {
     avatarImg.src = data.avatar;
     avatarImg.alt = 'Avatar';
     avatarImg.width = 50; // Establece el ancho de la imagen
-
-    citaInfo.appendChild(avatarImg);
+      avatarImg.classList.add('avatar-image'); // Agrega la clase para el estilo circular
+      
+      citaInfo.appendChild(avatarImg);
 
     const contacto = document.createElement('li');
     contacto.textContent = `Contacto: ${data.contacto}`;
