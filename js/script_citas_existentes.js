@@ -1,3 +1,6 @@
+// Tu código para inicializar Firebase
+
+// Obtención de datos y lógica para mostrar formulario y editar
 const db = firebase.firestore();
 const container = document.getElementById('container');
 
@@ -62,24 +65,41 @@ db.collection("citas").orderBy("hora_de_registro", "asc").get().then((querySnaps
         usuarioInput.value = data.usuario;
 
         editFormContainer.style.display = 'block';
+        
+        // Almacenar el ID del documento a editar en un atributo del formulario
+        editForm.dataset.docId = querySnapshot.docs[index].id;
       });
     });
 
-    editForm.addEventListener('submit', (e) => {
+    editForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      // Lógica para actualizar los datos en Firebase
-      // Aquí se debería implementar la lógica real para actualizar
-      console.log('Datos actualizados en Firebase:');
-      console.log('Contacto:', contactoInput.value);
-      console.log('Fecha:', fechaInput.value);
-      console.log('Hora de la cita:', horaCitaInput.value);
-      console.log('Nombre:', nombreInput.value);
-      console.log('Usuario:', usuarioInput.value);
+      const docId = editForm.dataset.docId;
+      const docRef = db.collection('citas').doc(docId);
 
-      editFormContainer.style.display = 'none';
+      try {
+        await docRef.update({
+          contacto: contactoInput.value,
+          fecha: fechaInput.value,
+          hora_de_cita: horaCitaInput.value,
+          nombre: nombreInput.value,
+          usuario: usuarioInput.value
+        });
+
+        console.log('Datos actualizados en Firebase:');
+        console.log('Contacto:', contactoInput.value);
+        console.log('Fecha:', fechaInput.value);
+        console.log('Hora de la cita:', horaCitaInput.value);
+        console.log('Nombre:', nombreInput.value);
+        console.log('Usuario:', usuarioInput.value);
+
+        editFormContainer.style.display = 'none';
+      } catch (error) {
+        console.error('Error al actualizar los datos en Firebase:', error);
+      }
     });
   });
 }).catch((error) => {
   console.error("Error al obtener los datos: ", error);
 });
+
 
