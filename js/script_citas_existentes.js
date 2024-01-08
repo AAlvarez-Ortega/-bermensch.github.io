@@ -1,4 +1,4 @@
-  const db = firebase.firestore();
+const db = firebase.firestore();
 const container = document.getElementById('container');
 
 // Consulta los datos en la colección específica y ordena por el campo "hora_de_registro"
@@ -34,7 +34,13 @@ db.collection("citas").orderBy("hora_de_registro", "asc").get().then((querySnaps
     listaDatos.appendChild(usuario);
 
     citaInfo.appendChild(listaDatos);
-    container.appendChild(citaInfo);
+
+    // Crea un enlace con el ID del documento como parámetro en la URL
+    const enlaceModificar = document.createElement('a');
+    enlaceModificar.href = `modificar_cita.html?id=${doc.id}`;
+    enlaceModificar.appendChild(citaInfo);
+
+    container.appendChild(enlaceModificar);
   });
 }).catch((error) => {
   console.error("Error al obtener los datos: ", error);
