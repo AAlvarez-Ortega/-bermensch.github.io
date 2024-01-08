@@ -14,7 +14,6 @@ const citaRef = db.collection('citas').doc(citaId);
 
 citaRef.get().then((doc) => {
   if (doc.exists) {
-    alert("si entro tu!!!");
     const data = doc.data();
     // Rellena el formulario con los datos obtenidos del documento
     nombreInput.value = data.nombre;
@@ -32,7 +31,9 @@ citaRef.get().then((doc) => {
         contacto: contactoInput.value
       })
       .then(() => {
+        alert('Cita actualizada');
         console.log('Datos actualizados correctamente');
+        window.location.href = 'citas_existentes.html'; // Redirecciona a citas_existentes.html
       })
       .catch((error) => {
         console.error('Error al actualizar los datos: ', error);
@@ -44,7 +45,9 @@ citaRef.get().then((doc) => {
       // Elimina el documento de Firebase
       return citaRef.delete()
       .then(() => {
+        alert('Registro eliminado');
         console.log('Cita eliminada correctamente');
+        window.location.href = 'citas_existentes.html'; // Redirecciona a citas_existentes.html
       })
       .catch((error) => {
         console.error('Error al eliminar la cita: ', error);
