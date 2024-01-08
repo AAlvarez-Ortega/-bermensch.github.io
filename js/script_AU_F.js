@@ -35,14 +35,15 @@ auth.onAuthStateChanged(
 );
 
 /** Termina la sesión. */
-async function terminaSesion() {
-  if (!sesionTerminada) { // Verifica si la sesión no ha terminado antes
-    try {
-      await auth.signOut();
-      sesionTerminada = true; // Marca la sesión como terminada
-    } catch (e) {
-      procesaError(e);
-    }
+async function terminaSesión() {
+  try {
+    await auth.signOut();
+    alert("sesion terminada");
+    window.close();
+    window.open('https://aalvarez-ortega.github.io/-bermensch.github.io/');
+    window.close();
+  } catch (e) {
+    procesaError(e);
   }
 }
 
