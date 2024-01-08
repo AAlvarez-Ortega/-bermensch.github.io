@@ -9,9 +9,7 @@ const eliminarCitaBtn = document.getElementById('eliminarCitaBtn');
 const urlParams = new URLSearchParams(window.location.search);
 const citaId = urlParams.get('id'); // Obtiene el ID de la cita del parámetro URL
 
-// Inicializa Firebase (asegúrate de tener la configuración de Firebase)
-
-// Obtén la referencia al documento específico en Firebase
+const db = firebase.firestore();
 const citaRef = db.collection('citas').doc(citaId);
 
 citaRef.get().then((doc) => {
