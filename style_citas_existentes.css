@@ -127,14 +127,10 @@ ul {
  padding: 8px;
 }
 
-/* Estilo para cada elemento de lista */
-li {
-  padding: 8px;
-}
-
 /* Estilo para el último elemento de lista, elimina el borde inferior */
 li:last-child {
-  border-bottom: none;
+  border-bottom: 1px solid #ddd;px solid #ddd;
+  padding-bottom:10px
 }
 
 /* Estilo para las imágenes de avatar */
@@ -144,7 +140,7 @@ li:last-child {
   height: 50px;
   object-fit: cover; /* Ajusta la imagen al tamaño especificado */
   margin-right: 10px; /* Espacio a la derecha de la imagen */
+  padding:5px;
 }
-
 
 
