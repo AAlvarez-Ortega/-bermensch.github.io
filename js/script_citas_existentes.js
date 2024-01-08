@@ -1,19 +1,19 @@
-  const db = firebase.firestore();
+const db = firebase.firestore();
 const container = document.getElementById('container');
 
-// Consulta los datos en la colección específica y ordena por el campo "hora_de_registro"
 db.collection("citas").orderBy("hora_de_registro", "asc").get().then((querySnapshot) => {
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     const citaInfo = document.createElement('div');
     const avatarImg = document.createElement('img');
     const listaDatos = document.createElement('ul');
-
+    const modificarBtn = document.createElement('button');
+    
     avatarImg.src = data.avatar;
     avatarImg.alt = 'Avatar';
-    avatarImg.width = 50; // Establece el ancho de la imagen
-    avatarImg.classList.add('avatar-image'); // Agrega la clase para el estilo circular
-      
+    avatarImg.width = 50;
+    avatarImg.classList.add('avatar-image');
+    
     citaInfo.appendChild(avatarImg);
 
     const contacto = document.createElement('li');
@@ -33,7 +33,16 @@ db.collection("citas").orderBy("hora_de_registro", "asc").get().then((querySnaps
     listaDatos.appendChild(nombre);
     listaDatos.appendChild(usuario);
 
+    modificarBtn.textContent = 'Modificar';
+    modificarBtn.classList.add('modificar-btn');
+    modificarBtn.addEventListener('click', () => {
+      // Lógica para mostrar un formulario y permitir la edición
+      // Puedes implementar esto usando eventos, mostrar un formulario modal, etc.
+      console.log('Botón "Modificar" presionado para:', data.nombre);
+    });
+
     citaInfo.appendChild(listaDatos);
+    citaInfo.appendChild(modificarBtn);
     container.appendChild(citaInfo);
   });
 }).catch((error) => {
