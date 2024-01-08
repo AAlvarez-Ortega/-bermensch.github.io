@@ -14,7 +14,7 @@ const citaRef = db.collection('citas').doc(citaId);
 
 // Verificar si el usuario actual está autenticado y tiene el correo autorizado
 firebase.auth().onAuthStateChanged((user) => {
-  if (user && user.email === 'alvarez.ortega.aldourie@gmail.com') {
+  if (user && user.email === 'alvarez.ortega.aldouriel@gmail.com') {
     citaRef.get().then((doc) => {
       if (doc.exists) {
         const data = doc.data();
@@ -63,7 +63,8 @@ firebase.auth().onAuthStateChanged((user) => {
       console.error('Error al obtener el documento: ', error);
     });
   } else {
+    alert("no tienes permisos para modificar estos datos");
     console.log('Usuario no autorizado para modificar o borrar documentos.');
-    // Puedes realizar alguna acción si el usuario no está autorizado
+    window.location.href = 'citas_existentes.html';
   }
 });
