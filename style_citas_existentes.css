@@ -135,13 +135,14 @@ li:last-child {
   border-bottom: none;
 }
 
-/* Estilo para la imagen */
-img {
+/* Estilo para las imágenes de avatar */
+.avatar-image {
   border-radius: 50%; /* Hace que la imagen sea circular */
   width: 50px; /* Tamaño de la imagen */
   height: 50px;
   object-fit: cover; /* Ajusta la imagen al tamaño especificado */
   margin-right: 10px; /* Espacio a la derecha de la imagen */
 }
+
 
 
