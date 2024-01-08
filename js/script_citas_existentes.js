@@ -7,13 +7,12 @@ db.collection("citas").orderBy("hora_de_registro", "asc").get().then((querySnaps
     const citaInfo = document.createElement('div');
     const avatarImg = document.createElement('img');
     const listaDatos = document.createElement('ul');
-    const modificarBtn = document.createElement('button');
-    
+
     avatarImg.src = data.avatar;
     avatarImg.alt = 'Avatar';
     avatarImg.width = 50;
     avatarImg.classList.add('avatar-image');
-    
+      
     citaInfo.appendChild(avatarImg);
 
     const contacto = document.createElement('li');
@@ -33,17 +32,52 @@ db.collection("citas").orderBy("hora_de_registro", "asc").get().then((querySnaps
     listaDatos.appendChild(nombre);
     listaDatos.appendChild(usuario);
 
-    modificarBtn.textContent = 'Modificar';
-    modificarBtn.classList.add('modificar-btn');
-    modificarBtn.addEventListener('click', () => {
-      // Lógica para mostrar un formulario y permitir la edición
-      // Puedes implementar esto usando eventos, mostrar un formulario modal, etc.
-      console.log('Botón "Modificar" presionado para:', data.nombre);
+    citaInfo.appendChild(listaDatos);
+    container.appendChild(citaInfo);
+
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Modificar';
+    editButton.classList.add('modificar-btn');
+    citaInfo.appendChild(editButton);
+  });
+
+  const editFormContainer = document.getElementById('editFormContainer');
+  const editForm = document.getElementById('editForm');
+  const contactoInput = document.getElementById('contacto');
+  const fechaInput = document.getElementById('fecha');
+  const horaCitaInput = document.getElementById('horaCita');
+  const nombreInput = document.getElementById('nombre');
+  const usuarioInput = document.getElementById('usuario');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const modificarButtons = document.querySelectorAll('.modificar-btn');
+    modificarButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        const data = querySnapshot.docs[index].data();
+
+        contactoInput.value = data.contacto;
+        fechaInput.value = data.fecha;
+        horaCitaInput.value = data.hora_de_cita;
+        nombreInput.value = data.nombre;
+        usuarioInput.value = data.usuario;
+
+        editFormContainer.style.display = 'block';
+      });
     });
 
-    citaInfo.appendChild(listaDatos);
-    citaInfo.appendChild(modificarBtn);
-    container.appendChild(citaInfo);
+    editForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Lógica para actualizar los datos en Firebase
+      // Aquí se debería implementar la lógica real para actualizar
+      console.log('Datos actualizados en Firebase:');
+      console.log('Contacto:', contactoInput.value);
+      console.log('Fecha:', fechaInput.value);
+      console.log('Hora de la cita:', horaCitaInput.value);
+      console.log('Nombre:', nombreInput.value);
+      console.log('Usuario:', usuarioInput.value);
+
+      editFormContainer.style.display = 'none';
+    });
   });
 }).catch((error) => {
   console.error("Error al obtener los datos: ", error);
