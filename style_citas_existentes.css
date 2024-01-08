@@ -126,66 +126,22 @@ ul {
 .lista_de_opciones{
  padding: 8px;
 }
+
 /* Estilo para el último elemento de lista, elimina el borde inferior */
 li:last-child {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-}
-
-/* Estilo para el botón "Modificar" */
-.modificar-btn {
-  margin-top: 10px;
-  padding: 8px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-/* Estilo para el formulario de edición */
-.edit-form-container {
-  font-family: 'Roboto', sans-serif;
-  color: #fff;
-  padding: 20px;
-  background-color: #333;
-  margin-top: 20px;
-}
-
-.edit-form-container h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.edit-form-container label {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.edit-form-container input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-}
-
-.edit-form-container input[type="submit"] {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.edit-form-container input[type="submit"]:hover {
-  background-color: #0056b3;
+  border-bottom: 1px solid #ddd;px solid #ddd;
+  padding-bottom:10px
 }
 
 /* Estilo para las imágenes de avatar */
 .avatar-image {
-  border-radius: 50%;
-  width: 50px;
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  width: 50px; /* Tamaño de la imagen */
   height: 50px;
-  object-fit: cover;
-  margin-right: 10px;
-  padding: 5px;
+  object-fit: cover; /* Ajusta la imagen al tamaño especificado */
+  margin-right: 10px; /* Espacio a la derecha de la imagen */
+  padding:5px;
 }
+
 
 
