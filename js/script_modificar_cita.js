@@ -14,7 +14,7 @@ const citaRef = db.collection('citas').doc(citaId);
 
 // Verificar si el usuario actual está autenticado y tiene el correo autorizado
 firebase.auth().onAuthStateChanged((user) => {
-  if (user && user.email === 'alvarez.ortega.aldouriel@gmail.com') {
+ if (user &&(user.email === 'alvarez.ortega.aldourie@gmail.com' || user.email === 'ubermenschweb28@gmail.com'))  {
     citaRef.get().then((doc) => {
       if (doc.exists) {
         const data = doc.data();
