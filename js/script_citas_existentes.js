@@ -1,8 +1,8 @@
-   const db = firebase.firestore();
+  const db = firebase.firestore();
 const container = document.getElementById('container');
 
-// Consulta los datos en la colección específica
-db.collection("citas").get().then((querySnapshot) => {
+// Consulta los datos en la colección específica y ordena por el campo "hora_de_registro"
+db.collection("citas").orderBy("hora_de_registro", "asc").get().then((querySnapshot) => {
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     const citaInfo = document.createElement('div');
@@ -12,9 +12,9 @@ db.collection("citas").get().then((querySnapshot) => {
     avatarImg.src = data.avatar;
     avatarImg.alt = 'Avatar';
     avatarImg.width = 50; // Establece el ancho de la imagen
-      avatarImg.classList.add('avatar-image'); // Agrega la clase para el estilo circular
+    avatarImg.classList.add('avatar-image'); // Agrega la clase para el estilo circular
       
-      citaInfo.appendChild(avatarImg);
+    citaInfo.appendChild(avatarImg);
 
     const contacto = document.createElement('li');
     contacto.textContent = `Contacto: ${data.contacto}`;
@@ -39,3 +39,4 @@ db.collection("citas").get().then((querySnapshot) => {
 }).catch((error) => {
   console.error("Error al obtener los datos: ", error);
 });
+
